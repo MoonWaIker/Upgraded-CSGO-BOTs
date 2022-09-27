@@ -1,0 +1,986 @@
+//----------------------------------------------------------------------------
+// BotProfile.db
+// Author: Michael S. Booth, Turtle Rock Studios (www.turtlerockstudios.com)
+//
+// This database defines bot "personalities". 
+// Feel free to edit it and define your own bots.
+//
+
+
+//----------------------------------------------------------------------------
+
+//
+// All profiles begin with this data and overwrite their own
+//
+Default
+	Skill = 50
+	Aggression = 50
+	ReactionTime = 0.3
+	AttackDelay = 0
+	Teamwork = 50
+	AimFocusInitial = 20			// initial focus spread in degrees (from desired center)
+	AimFocusDecay = 0.7				// how much focus shrinks per second (.25 = 25% of size after 1 sec)
+	AimFocusOffsetScale = 0.30		// controls accuracy when tracking to target (0 == perfect, should always be < 1)
+	AimfocusInterval = 0.8			// how often focus is adjusted (smaller intervals means better movement tracking)
+	WeaponPreference = none
+	Cost = 0
+	Difficulty = NORMAL
+	VoicePitch = 100
+	Skin = 0
+	LookAngleMaxAccelNormal = 20000.0	// this is a circle drag speed (the best point is 40000)
+	LookAngleStiffnessNormal = 1000.0	// this is a circle diameter which he draw, influence to peripheral vision (the best point is 2000)
+	LookAngleDampingNormal = 50.0	// this is an align speed (the best point is 100)
+	LookAngleMaxAccelAttacking = 30000.0	// this is similar options for attacking mode
+	LookAngleStiffnessAttacking = 1500.0
+	LookAngleDampingAttacking = 50.0
+End
+
+//----------------------------------------------------------------------------
+
+//
+// These templates inherit from Default and override with their values
+// The name of the template defines a type that is used by individual bot profiles
+//
+
+// weapon preference templates
+Template Rifle
+	WeaponPreference = m4a1_silencer	// CT
+	WeaponPreference = m4a1
+	WeaponPreference = ak47		// T
+	WeaponPreference = famas	// CT	
+	WeaponPreference = galilar	// T
+
+	WeaponPreference = aug		// CT			
+	WeaponPreference = sg556	// T
+	WeaponPreference = m249				
+	WeaponPreference = scar20			
+	WeaponPreference = g3sg1
+	WeaponPreference = awp	
+	WeaponPreference = p90
+	WeaponPreference = negev
+	WeaponPreference = mp5sd	// CT			
+	WeaponPreference = mp7		// T
+	WeaponPreference = ump45
+	WeaponPreference = bizon				
+	WeaponPreference = mp9			
+	WeaponPreference = mac10				
+	WeaponPreference = ssg08
+	WeaponPreference = xm1014
+	WeaponPreference = mag7		
+	WeaponPreference = nova	
+	WeaponPreference = sawedoff				
+End
+
+Template RifleT
+	WeaponPreference = ak47		// T
+	WeaponPreference = m4a1_silencer	// CT
+	WeaponPreference = m4a1
+	WeaponPreference = galilar	// T
+	WeaponPreference = famas	// CT	
+
+	WeaponPreference = sg556	// T
+	WeaponPreference = aug		// CT			
+	WeaponPreference = m249				
+	WeaponPreference = scar20			
+	WeaponPreference = g3sg1
+	WeaponPreference = awp	
+	WeaponPreference = p90
+	WeaponPreference = negev
+	WeaponPreference = mp7		// T
+	WeaponPreference = mp5sd	// CT			
+	WeaponPreference = ump45
+	WeaponPreference = bizon				
+	WeaponPreference = mp9			
+	WeaponPreference = mac10				
+	WeaponPreference = ssg08
+	WeaponPreference = xm1014
+	WeaponPreference = mag7		
+	WeaponPreference = nova	
+	WeaponPreference = sawedoff					
+End
+
+Template Punch
+	WeaponPreference = aug		// CT			
+	WeaponPreference = sg556	// T
+	WeaponPreference = m4a1_silencer	// CT
+	WeaponPreference = m4a1
+	WeaponPreference = ak47		// T
+
+	WeaponPreference = famas	// CT	
+	WeaponPreference = galilar	// T				
+	WeaponPreference = scar20			
+	WeaponPreference = g3sg1
+	WeaponPreference = awp
+	WeaponPreference = m249	
+	WeaponPreference = p90
+	WeaponPreference = negev
+	WeaponPreference = mp5sd	// CT			
+	WeaponPreference = mp7		// T
+	WeaponPreference = ump45
+	WeaponPreference = bizon				
+	WeaponPreference = mp9			
+	WeaponPreference = mac10				
+	WeaponPreference = ssg08
+	WeaponPreference = xm1014
+	WeaponPreference = mag7		
+	WeaponPreference = nova	
+	WeaponPreference = sawedoff				
+End
+
+Template PunchT
+	WeaponPreference = sg556	// T
+	WeaponPreference = aug		// CT	
+	WeaponPreference = ak47		// T
+	WeaponPreference = m4a1_silencer	// CT
+	WeaponPreference = m4a1
+
+	WeaponPreference = galilar	// T
+	WeaponPreference = famas	// CT				
+	WeaponPreference = scar20			
+	WeaponPreference = g3sg1
+	WeaponPreference = awp
+	WeaponPreference = m249		
+	WeaponPreference = p90
+	WeaponPreference = negev
+	WeaponPreference = mp7		// T
+	WeaponPreference = mp5sd	// CT			
+	WeaponPreference = ump45
+	WeaponPreference = bizon				
+	WeaponPreference = mp9			
+	WeaponPreference = mac10				
+	WeaponPreference = ssg08
+	WeaponPreference = xm1014
+	WeaponPreference = mag7		
+	WeaponPreference = nova	
+	WeaponPreference = sawedoff	
+End
+
+Template Sniper
+	WeaponPreference = awp
+	WeaponPreference = aug		// CT			
+	WeaponPreference = sg556	// T
+	WeaponPreference = famas	// CT	
+	WeaponPreference = galilar	// T
+
+	WeaponPreference = m4a1_silencer	// CT
+	WeaponPreference = m4a1
+	WeaponPreference = ak47		// T			
+	WeaponPreference = scar20			
+	WeaponPreference = g3sg1	
+	WeaponPreference = m249	
+	WeaponPreference = p90
+	WeaponPreference = negev
+	WeaponPreference = mp5sd	// CT			
+	WeaponPreference = mp7		// T
+	WeaponPreference = ump45
+	WeaponPreference = bizon				
+	WeaponPreference = mp9			
+	WeaponPreference = mac10				
+	WeaponPreference = ssg08
+	WeaponPreference = xm1014
+	WeaponPreference = mag7		
+	WeaponPreference = nova	
+	WeaponPreference = sawedoff					
+End
+
+Template SniperT
+	WeaponPreference = awp
+	WeaponPreference = sg556	// T
+	WeaponPreference = aug		// CT	
+	WeaponPreference = galilar	// T
+	WeaponPreference = famas	// CT	
+
+	WeaponPreference = ak47		// T
+	WeaponPreference = m4a1_silencer	// CT
+	WeaponPreference = m4a1			
+	WeaponPreference = scar20			
+	WeaponPreference = g3sg1
+	WeaponPreference = m249		
+	WeaponPreference = p90
+	WeaponPreference = negev
+	WeaponPreference = mp7		// T
+	WeaponPreference = mp5sd	// CT			
+	WeaponPreference = ump45
+	WeaponPreference = bizon				
+	WeaponPreference = mp9			
+	WeaponPreference = mac10				
+	WeaponPreference = ssg08
+	WeaponPreference = xm1014
+	WeaponPreference = mag7		
+	WeaponPreference = nova	
+	WeaponPreference = sawedoff			
+End
+
+Template Power
+	WeaponPreference = m249	
+	WeaponPreference = sg556	// T
+	WeaponPreference = aug		// CT	
+	WeaponPreference = galilar	// T
+	WeaponPreference = famas	// CT
+
+	WeaponPreference = ak47		// T
+	WeaponPreference = m4a1_silencer	// CT
+	WeaponPreference = m4a1				
+	WeaponPreference = scar20			
+	WeaponPreference = g3sg1
+	WeaponPreference = awp	
+	WeaponPreference = p90
+	WeaponPreference = negev
+	WeaponPreference = mp7		// T
+	WeaponPreference = mp5sd	// CT			
+	WeaponPreference = ump45
+	WeaponPreference = bizon				
+	WeaponPreference = mp9			
+	WeaponPreference = mac10				
+	WeaponPreference = ssg08
+	WeaponPreference = xm1014
+	WeaponPreference = mag7		
+	WeaponPreference = nova	
+	WeaponPreference = sawedoff			
+End
+
+Template Shotgun
+	WeaponPreference = xm1014
+	WeaponPreference = mag7
+	WeaponPreference = nova
+	WeaponPreference = sawedoff								
+End
+
+Template Spray
+	WeaponPreference = p90
+	WeaponPreference = mp7		// T
+	WeaponPreference = mp5sd	// CT			
+	WeaponPreference = ump45
+	WeaponPreference = bizon				
+	WeaponPreference = mp9			
+	WeaponPreference = mac10						
+End
+
+
+// skill templates
+Template Elite
+	Skill = 100
+	Rank = 1000
+	Aggression = 100
+	ReactionTime = 0.0
+	Teamwork = 100	
+	Cost = 4
+	Difficulty = EXPERT
+	VoicePitch = 85
+	AimFocusInitial = 0
+	AimFocusDecay = 0.01
+	AimFocusOffsetScale = 0
+	AimfocusInterval = 0
+End
+
+Template Expert
+	Skill = 90
+	Rank = 900
+	Aggression = 90
+	ReactionTime = 0.05
+	Cost = 4
+	Difficulty = HARD
+	VoicePitch = 90
+	AimFocusInitial = 2
+	AimFocusDecay = 0.2
+	AimFocusOffsetScale = 0.2
+	AimfocusInterval = 0.2
+End
+
+Template VeryHard
+	Skill = 85
+	Rank = 800
+	Aggression = 85
+	ReactionTime = 0.1
+	Cost = 3
+	Difficulty = HARD
+	VoicePitch = 95
+	AimFocusInitial = 2
+	AimFocusDecay = 0.4
+	AimFocusOffsetScale = 0.2
+	AimfocusInterval = 0.2
+End
+
+Template Hard
+	Skill = 75
+	Rank = 700
+	Aggression = 75
+	ReactionTime = 0.2
+	Cost = 3
+	Difficulty = HARD
+	VoicePitch = 100
+	AimFocusInitial = 2
+	AimFocusDecay = 0.5
+	AimFocusOffsetScale = 0.25
+	AimfocusInterval = 0.25
+End
+
+Template Tough
+	Skill = 65
+	Rank = 600
+	Aggression = 65
+	ReactionTime = 0.3
+	AttackDelay = 0.15
+	Cost = 2
+	Difficulty = NORMAL+HARD
+	VoicePitch = 105
+	AimFocusInitial = 3
+	AimFocusDecay = 0.7
+	AimFocusOffsetScale = 0.35
+	AimfocusInterval = 0.35
+End
+
+Template Normal
+	Skill = 50
+	Rank = 400
+	Aggression = 50
+	ReactionTime = 0.4
+	AttackDelay = 0.2
+	Cost = 2
+	Difficulty = NORMAL
+	VoicePitch = 110	
+	AimFocusInitial = 4
+	AimFocusDecay = 0.8
+	AimFocusOffsetScale = 0.4
+	AimfocusInterval = 0.4
+End
+
+Template Fair
+	Skill = 25
+	Rank = 200
+	Aggression = 25
+	ReactionTime = 0.5
+	AttackDelay = 0.25
+	Cost = 1
+	Difficulty = EASY+NORMAL
+	VoicePitch = 115
+	AimFocusInitial = 4
+	AimFocusDecay = 0.9
+	AimFocusOffsetScale = 0.45
+	AimfocusInterval = 0.45
+End
+
+Template Easy
+	Skill = 0
+	Rank = 0
+	Aggression = 0
+	ReactionTime = 0.6
+	AttackDelay = 0.3
+	Cost = 1
+	Difficulty = EASY
+	VoicePitch = 120
+	AimFocusInitial = 5
+	AimFocusDecay = 1.0
+	AimFocusOffsetScale = 0.5
+	AimfocusInterval = 0.5
+End
+
+//----------------------------------------------------------------------------
+//
+// These are the individual bot profiles, which inherit first from 
+// Default and then the specified Template(s), in order
+//
+
+Elite+RifleT Cliffe
+	Skin = 0
+End
+
+Elite+RifleT Minh
+	Skin = 0
+End
+
+Elite+SniperT Crusher
+	Skin = 0
+End
+
+Elite+RifleT Garret
+	Skin = 0
+End
+
+Elite+SniperT Rock
+	Skin = 0
+End
+
+Elite+RifleT Shark
+	Skin = 0
+End
+
+Elite+RifleT Wolf
+	Skin = 0
+End
+
+Elite+RifleT Gunner
+	Skin = 0
+End
+
+Elite+SniperT Vitaliy
+	Skin = 0
+End
+
+Elite+RifleT Ridgway
+	Skin = 0
+End
+
+Elite+RifleT Steel
+	Skin = 0
+End
+
+Elite+RifleT Stone
+	Skin = 0
+End
+
+
+//----------------------------------------
+
+Expert+RifleT Arnold
+	Skin = 0
+End
+
+Expert+Rifle Brett
+	Skin = 0
+End
+
+Expert+Punch Kurt
+	Skin = 0
+End
+
+Expert+SniperT Kyle
+	Skin = 0
+End
+
+Expert+Shotgun Moe
+	Skin = 0
+End
+
+Expert+Rifle Quade
+	Skin = 0
+End
+
+Expert+Rifle Quintin
+	Skin = 0
+End
+
+Expert Ringo
+	Skin = 0
+End
+
+Expert+PunchT Rip
+	Skin = 0
+End
+
+Expert+Rifle Zach
+	Skin = 0
+End
+
+//----------------------------------------
+
+VeryHard+Power Cory
+	Skin = 0
+End
+
+VeryHard+Sniper Quinn
+	Skin = 0
+End
+
+VeryHard+Rifle Seth
+	Skin = 0
+End
+
+VeryHard+RifleT Vinny
+	Skin = 0
+End
+
+
+//----------------------------------------
+
+Hard+Rifle Brian
+	Skin = 0
+End
+
+Hard+Rifle Chad
+	Skin = 0
+End
+
+Hard+RifleT Chet
+	Skin = 0
+End
+
+Hard+Spray Gabe
+	Skin = 0
+End
+
+Hard+Shotgun Hank
+	Skin = 0
+End
+
+Hard+RifleT Ivan
+	Skin = 0
+End
+
+Hard+Punch Jim
+	Skin = 0
+End
+
+Hard+PunchT Joe
+	Skin = 0
+End
+
+Hard+Rifle John
+	Skin = 0
+End
+
+Hard+Rifle Tony
+	Skin = 0
+End
+
+Hard+PunchT Tyler
+	Skin = 0
+End
+
+Hard+Rifle Victor
+	Skin = 0
+End
+
+Hard+Sniper Vladimir
+	Skin = 0
+End
+
+Hard+Spray Zane
+	Skin = 0
+End
+
+Hard+Rifle Zim
+	Skin = 0
+End
+
+//----------------------------------------
+
+Tough+Sniper Adrian
+	Skin = 0
+End
+
+Tough+Sniper Bank
+	Skin = 0
+End
+
+Tough+Rifle Brad
+	Skin = 0
+End
+
+Tough+Rifle Connor
+	Skin = 0
+End
+
+Tough+RifleT Dave
+	Skin = 0
+End
+
+Tough Dan
+	Skin = 0
+End
+
+Tough+Rifle Derek
+	Skin = 0
+End
+
+Tough+Shotgun Don
+	Skin = 0
+End
+
+Tough+Rifle Eric
+	Skin = 0
+End
+
+Tough+RifleT Erik
+	Skin = 0
+End
+
+Tough+Rifle Finn
+	Skin = 0
+End
+
+Tough Jeff
+	Skin = 0
+End
+
+Tough+Rifle Kevin
+	Skin = 0
+End
+
+Tough+RifleT Reed
+	Skin = 0
+End
+
+Tough+Rifle Rick
+	Skin = 0
+End
+
+Tough Ted
+	Skin = 0
+End
+
+Tough+Rifle Troy
+	Skin = 0
+End
+
+Tough+RifleT Wade
+	Skin = 0
+End
+
+Tough+Rifle Wayne
+	Skin = 0
+End
+
+Tough+RifleT Xander
+	Skin = 0
+End
+
+Tough+Rifle Xavier
+	Skin = 0
+End
+
+//----------------------------------------
+
+Normal+Rifle Adam
+	Skin = 0
+End
+
+Normal+PunchT Andy
+	Skin = 0
+End
+
+Normal Chris
+	Skin = 0
+End
+
+Normal Colin
+	Skin = 0
+End
+
+Normal+Rifle Dennis
+	Skin = 0
+End
+
+Normal Doug
+	Skin = 0
+End
+
+Normal+Sniper Duffy
+	Skin = 0
+End
+
+Normal Gary
+	Skin = 0
+End
+
+Normal Grant
+	Skin = 0
+End
+
+Normal Greg
+	Skin = 0
+End
+
+Normal+Sniper Ian
+	Skin = 0
+End
+
+Normal Jerry
+	Skin = 0
+End
+
+Normal Jon
+	Skin = 0
+End
+
+Normal Keith
+	Skin = 0
+End
+
+Normal Mark
+	Skin = 0
+End
+
+Normal Matt
+	Skin = 0
+End
+
+Normal+RifleT Mike
+	Skin = 0
+End
+
+Normal Nate
+	Skin = 0
+End
+
+Normal Paul
+	Skin = 0
+End
+
+Normal Scott
+	Skin = 0
+End
+
+Normal Steve
+	Skin = 0
+End
+
+Normal Tom
+	Skin = 0
+End
+
+Normal Yahn
+	Skin = 0
+End
+
+//----------------------------------------
+
+Fair Alfred
+	Skin = 0
+End
+
+Fair Bill
+	Skin = 0
+End
+
+Fair Brandon
+	Skin = 0
+End
+
+Fair+Spray Calvin
+	Skin = 0
+End
+
+Fair Dean
+	Skin = 0
+End
+
+Fair Dustin
+	Skin = 0
+End
+
+Fair Ethan
+	Skin = 0
+End
+
+Fair Harold
+	Skin = 0
+End
+
+Fair Henry
+	Skin = 0
+End
+
+Fair Irving
+	Skin = 0
+End
+
+Fair Jason
+	Skin = 0
+End
+
+Fair+Spray Jenssen
+	Skin = 0
+End
+
+Fair Josh
+	Skin = 0
+End
+
+Fair Martin
+	Skin = 0
+End
+
+Fair Nick
+	Skin = 0
+End
+
+Fair Norm
+	Skin = 0
+End
+
+Fair Orin
+	Skin = 0
+End
+
+Fair Pat
+	Skin = 0
+End
+
+Fair Perry
+	Skin = 0
+End
+
+Fair Ron
+	Skin = 0
+End
+
+Fair Shawn
+	Skin = 0
+End
+
+Fair Tim
+	Skin = 0
+End
+
+Fair Will
+	Skin = 0
+End
+
+Fair Wyatt
+	Skin = 0
+End
+
+//----------------------------------------
+
+Easy Albert
+	Skin = 0
+End
+
+Easy Allen
+	Skin = 0
+End
+
+Easy Bert
+	Skin = 0
+End
+
+Easy Bob
+	Skin = 0
+End
+
+Easy Cecil
+	Skin = 0
+End
+
+Easy Clarence
+	Skin = 0
+End
+
+Easy Elliot
+	Skin = 0
+End
+
+Easy Elmer
+	Skin = 0
+End
+
+Easy Ernie
+	Skin = 0
+End
+
+Easy Eugene
+	Skin = 0
+End
+
+Easy Fergus
+	Skin = 0
+End
+
+Easy Ferris
+	Skin = 0
+End
+
+Easy Frank
+	Skin = 0
+End
+
+Easy Frasier
+	Skin = 0
+End
+
+Easy Fred
+	Skin = 0
+End
+
+Easy George
+	Skin = 0
+End
+
+Easy Graham
+	Skin = 0
+End
+
+Easy Harvey
+	Skin = 0
+End
+
+Easy Irwin
+	Skin = 0
+End
+
+Easy Larry
+	Skin = 0
+End
+
+Easy Lester
+	Skin = 0
+End
+
+Easy Marvin
+	Skin = 0
+End
+
+Easy Neil
+	Skin = 0
+End
+
+Easy Niles
+	Skin = 0
+End
+
+Easy Oliver
+	Skin = 0
+End
+
+Easy Opie
+	Skin = 0
+End
+
+Easy Ryan
+	Skin = 0
+End
+
+Easy Toby
+	Skin = 0
+End
+
+Easy Ulric
+	Skin = 0
+End
+
+Easy Ulysses
+	Skin = 0
+End
+
+Easy Uri
+	Skin = 0
+End
+
+Easy Waldo
+	Skin = 0
+End
+
+Easy Wally
+	Skin = 0
+End
+
+Easy Walt
+	Skin = 0
+End
+
+Easy Wesley
+	Skin = 0
+End
+
+Easy Yanni
+	Skin = 0
+End
+
+Easy Yogi
+	Skin = 0
+End
+
+Easy Yuri
+	Skin = 0
+End
